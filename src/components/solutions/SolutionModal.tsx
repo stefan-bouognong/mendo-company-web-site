@@ -126,7 +126,7 @@ export default function SolutionModal({
                 {solution.name}
               </h2>
 
-              <p className="text-sm font-medium text-accent">
+              <p className="text-sm font-medium bg-brand">
                 {solution.tagline}
               </p>
             </div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
 import Button from "@/components/ui/Button";
@@ -12,15 +13,9 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -33,16 +28,25 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-            <span className="text-primary font-bold text-sm">M</span>
-          </div>
 
-          <span className="font-bold text-light text-xl">
-            Mendo<span className="text-accent">Company</span>
-          </span>
-        </Link>
+      {/* Logo */}
+      <Link href="/" className="inline-flex items-center gap-2 group">
+        {/* PNG original sans filtre, sur fond blanc arrondi */}
+        <div className="bg-white rounded-lg px-2 py-1 flex items-center">
+          <Image
+            src="/images/logo.png"
+            alt="mendo logo"
+            width={72}
+            height={24}
+            className="object-contain h-6 w-auto"
+            priority
+          />
+        </div>
+        {/* "Company" en texte bleu brand */}
+        <span className="font-heading font-bold text-brand text-xl tracking-tight leading-none">
+          Company
+        </span>
+      </Link>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
@@ -53,21 +57,18 @@ const Navbar: React.FC = () => {
               className="text-muted hover:text-light transition-colors duration-300 font-medium text-sm relative group"
             >
               {link.label}
-
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent rounded-full group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand rounded-full group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
 
           <Link href="#contact">
-            <Button variant="primary" size="sm">
-              Nous Contacter
-            </Button>
+            <Button variant="brand" size="sm">Nous Contacter</Button>
           </Link>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-light hover:text-accent transition-colors p-1"
+          className="lg:hidden text-light hover:text-brand transition-colors p-1"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Ouvrir le menu"
         >
@@ -84,22 +85,14 @@ const Navbar: React.FC = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-muted hover:text-accent hover:bg-white/5 transition-all duration-200 px-4 py-3 rounded-xl font-medium"
+                className="text-muted hover:text-brand hover:bg-white/5 transition-all duration-200 px-4 py-3 rounded-xl font-medium"
               >
                 {link.label}
               </Link>
             ))}
 
-            <Link
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="mt-3"
-            >
-              <Button
-                variant="primary"
-                size="default"
-                className="w-full"
-              >
+            <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-3">
+              <Button variant="brand" size="default" className="w-full">
                 Nous Contacter
               </Button>
             </Link>

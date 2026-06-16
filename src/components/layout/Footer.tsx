@@ -1,7 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Globe } from "lucide-react";
-
 import { NAV_LINKS } from "@/constants/navigation";
 
 const SOLUTIONS = [
@@ -13,23 +13,38 @@ const SOLUTIONS = [
   "Estamp",
 ];
 
+const SOCIALS = [
+  { label: "in", title: "LinkedIn", href: "#" },
+  { label: "fb", title: "Facebook", href: "#" },
+  { label: "𝕏", title: "X/Twitter", href: "#" },
+  { label: "ig", title: "Instagram", href: "#" },
+];
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-primary border-t border-white/5">
       {/* Ligne décorative */}
-      <div className="h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
 
       <div className="container mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
           {/* Marque */}
-          <div>
-            <Link href="/" className="flex items-center gap-2 mb-5 group">
-              <div className="w-9 h-9 bg-accent rounded-xl flex items-center justify-center">
-                <span className="text-primary font-bold">M</span>
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-2 group mb-5">
+              <div className="bg-white rounded-lg px-2 py-1 flex items-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="mendo logo"
+                  width={72}
+                  height={24}
+                  className="object-contain h-6 w-auto"
+                  priority
+                />
               </div>
 
-              <span className="font-bold text-light text-xl">
-                Mendo<span className="text-accent">Company</span>
+              <span className="font-heading font-bold text-brand text-xl tracking-tight leading-none">
+                Company
               </span>
             </Link>
 
@@ -39,19 +54,14 @@ const Footer: React.FC = () => {
             </p>
 
             <div className="flex gap-3">
-              {[
-                { icon: Mail, href: "#" },
-                { icon: MapPin, href: "#" },
-                { icon: Globe, href: "#" },
-              ].map(({ icon: Icon, href }, index) => (
+              {SOCIALS.map(({ label, title, href }) => (
                 <a
-                  key={index}
+                  key={title}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-muted hover:bg-accent hover:text-primary hover:border-accent transition-all duration-300"
+                  aria-label={title}
+                  className="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-muted text-xs font-heading font-bold hover:bg-brand hover:text-white hover:border-brand transition-all duration-300"
                 >
-                  <Icon size={15} />
+                  {label}
                 </a>
               ))}
             </div>
@@ -59,7 +69,7 @@ const Footer: React.FC = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-light font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h3 className="text-light font-heading font-semibold mb-5 text-xs uppercase tracking-widest">
               Navigation
             </h3>
 
@@ -68,7 +78,7 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted hover:text-accent transition-colors text-sm"
+                    className="text-muted hover:text-brand transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -79,7 +89,7 @@ const Footer: React.FC = () => {
 
           {/* Solutions */}
           <div>
-            <h3 className="text-light font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h3 className="text-light font-heading font-semibold mb-5 text-xs uppercase tracking-widest">
               Nos Solutions
             </h3>
 
@@ -88,7 +98,7 @@ const Footer: React.FC = () => {
                 <li key={solution}>
                   <a
                     href="#solutions"
-                    className="text-muted hover:text-accent transition-colors text-sm"
+                    className="text-muted hover:text-brand transition-colors text-sm"
                   >
                     {solution}
                   </a>
@@ -99,42 +109,40 @@ const Footer: React.FC = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-light font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h3 className="text-light font-heading font-semibold mb-5 text-xs uppercase tracking-widest">
               Contact
             </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-muted">
-                <MapPin
-                  size={15}
-                  className="text-accent mt-0.5 flex-shrink-0"
-                />
+                <MapPin size={15} className="text-brand mt-0.5 flex-shrink-0" />
                 <span>Yaoundé – Cameroun</span>
               </li>
 
               <li className="flex items-start gap-3 text-sm text-muted">
-                <Mail
-                  size={15}
-                  className="text-accent mt-0.5 flex-shrink-0"
-                />
-
+                <Mail size={15} className="text-brand mt-0.5 flex-shrink-0" />
                 <a
                   href="mailto:contact@mendocompany.com"
-                  className="hover:text-accent transition-colors break-all"
+                  className="hover:text-brand transition-colors break-all"
                 >
                   contact@mendocompany.com
                 </a>
               </li>
 
               <li className="flex items-start gap-3 text-sm text-muted">
-                <Globe
-                  size={15}
-                  className="text-accent mt-0.5 flex-shrink-0"
-                />
-                <span>www.mendocompany.com</span>
+                <Globe size={15} className="text-brand mt-0.5 flex-shrink-0" />
+                <a
+                  href="https://www.mendocompany.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand transition-colors"
+                >
+                  www.mendocompany.com
+                </a>
               </li>
             </ul>
           </div>
+
         </div>
       </div>
 
@@ -142,21 +150,20 @@ const Footer: React.FC = () => {
       <div className="border-t border-white/5">
         <div className="container mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-muted text-xs">
           <span>
-            © {new Date().getFullYear()} Mendo Company SAS – Tous droits
-            réservés.
+            © {new Date().getFullYear()} Mendo Company SAS – Tous droits réservés.
           </span>
 
           <div className="flex gap-6">
             <Link
               href="/privacy-policy"
-              className="hover:text-accent transition-colors"
+              className="hover:text-brand transition-colors"
             >
               Politique de confidentialité
             </Link>
 
             <Link
               href="/terms"
-              className="hover:text-accent transition-colors"
+              className="hover:text-brand transition-colors"
             >
               Conditions d'utilisation
             </Link>
@@ -168,3 +175,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+

@@ -51,7 +51,7 @@ export default function Subsidiary() {
               Mendo Finances
             </h2>
 
-            <h2 className="mb-6 text-3xl font-bold text-accent md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-brand md:text-4xl">
               Coop-CA
             </h2>
 
@@ -65,7 +65,7 @@ export default function Subsidiary() {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 font-semibold text-accent transition-all duration-300 hover:gap-3"
+              className="inline-flex items-center gap-2 font-semibold text-brand transition-all duration-300 hover:gap-3"
             >
               En savoir plus
               <ArrowRight size={16} />

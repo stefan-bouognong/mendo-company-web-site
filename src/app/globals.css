@@ -2,25 +2,35 @@
 @import "tailwindcss";
 
 @theme {
-  /* Couleurs */
-  --color-primary:      #0B1120;
-  --color-primary-800:  #111827;
-  --color-primary-700:  #1C2B3A;
+  /* Couleurs brand */
+  --color-brand:        #005CE6;   /* Bleu logo mendo */
+  --color-brand-hover:  #0047B8;
+  --color-brand-light:  #EBF2FF;   /* Fond clair bleu */
+
+  /* Surfaces sombres */
+  --color-primary:      #040D1A;   /* Nuit plus bleue pour cohérence */
+  --color-primary-800:  #091428;
+  --color-primary-700:  #0F2040;
+
+  /* Accent secondaire */
   --color-accent:       #00D9A6;
   --color-accent-hover: #00B88A;
+
+  /* Or */
   --color-gold:         #F59E0B;
+
+  /* Neutres */
   --color-light:        #F8FAFC;
   --color-dark:         #1E293B;
   --color-muted:        #94A3B8;
+  --color-muted-dark:   #64748B;
 
   /* Fonts */
   --font-sans:    "Inter", sans-serif;
   --font-heading: "Space Grotesk", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html  { scroll-behavior: smooth; }
 
 body {
   background-color: #F8FAFC;
@@ -30,7 +40,7 @@ body {
 }
 
 ::-webkit-scrollbar       { width: 6px; }
-::-webkit-scrollbar-track { background: #0B1120; }
-::-webkit-scrollbar-thumb { background: #00D9A6; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #040D1A; }
+::-webkit-scrollbar-thumb { background: #005CE6; border-radius: 3px; }
 
-::selection { background: #00D9A6; color: #0B1120; }
+::selection { background: #005CE6; color: #ffffff; }
