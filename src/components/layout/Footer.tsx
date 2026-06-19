@@ -14,10 +14,11 @@ const SOLUTIONS = [
 ];
 
 const SOCIALS = [
-  { label: "in", title: "LinkedIn", href: "#" },
-  { label: "fb", title: "Facebook", href: "#" },
-  { label: "𝕏", title: "X/Twitter", href: "#" },
-  { label: "ig", title: "Instagram", href: "#" },
+  { label: "in", title: "LinkedIn", href: "https://www.linkedin.com/posts/mendocoti_mendocoti-epargne-financepersonnelle-activity-7473351145042710531-Hlcg?utm_source=share&utm_medium=member_ios&rcm=ACoAAD-a4roBY6kjRENwZhjFl0FYuQyd1B1XFpo" },
+  { label: "fb", title: "Facebook", href: "https://www.facebook.com/share/r/1HrJphw2fQ/?mibextid=wwXIfr" },
+  { label: "ig", title: "Instagram", href: "https://www.instagram.com/reel/DZuhQvcuRby/?igsh=dXQ4MnI1eTQ1YnZh" },
+  { label: "tk", title: "TikTok", href: "https://vm.tiktok.com/ZNR3m63CR/" },
+  { label: "wa", title: "WhatsApp", href: "https://chat.whatsapp.com/Hl0Vdq3E3HnGAMYd1o3" },
 ];
 
 const Footer: React.FC = () => {
@@ -42,10 +43,6 @@ const Footer: React.FC = () => {
                   priority
                 />
               </div>
-
-              <span className="font-heading font-bold text-brand text-xl tracking-tight leading-none">
-                Company
-              </span>
             </Link>
 
             <p className="text-muted text-sm leading-relaxed mb-6">

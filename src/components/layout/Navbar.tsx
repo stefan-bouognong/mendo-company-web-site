@@ -42,10 +42,6 @@ const Navbar: React.FC = () => {
             priority
           />
         </div>
-        {/* "Company" en texte bleu brand */}
-        <span className="font-heading font-bold text-brand text-xl tracking-tight leading-none">
-          Company
-        </span>
       </Link>
 
         {/* Desktop Menu */}

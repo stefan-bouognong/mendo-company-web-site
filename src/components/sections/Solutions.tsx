@@ -2,15 +2,14 @@
 import { useState } from "react";
 import SectionTitle from "@/components/layout/SectionTitle";
 import SolutionCard from "@/components/solutions/SolutionCard";
-import SolutionModal from "@/components/solutions/SolutionModal";
-import { SOLUTIONS, type Solution } from "@/data/solutions";
+import { SOLUTIONS } from "@/data/solutions";
 
 export default function Solutions() {
-  const [selected, setSelected] = useState<Solution | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   return (
     <section id="solutions" className="py-28 bg-primary">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-4xl">
         <SectionTitle
           eyebrow="Nos Produits"
           title="L'Écosystème Mendo"
@@ -18,19 +17,18 @@ export default function Solutions() {
           light
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col gap-4">
           {SOLUTIONS.map((sol, i) => (
             <SolutionCard
               key={sol.id}
               solution={sol}
               index={i}
-              onClick={() => setSelected(sol)}
+              isOpen={selectedId === sol.id}
+              onToggle={() => setSelectedId(selectedId === sol.id ? null : sol.id)}
             />
           ))}
         </div>
       </div>
-
-      <SolutionModal solution={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }

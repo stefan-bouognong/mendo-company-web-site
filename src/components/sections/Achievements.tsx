@@ -10,7 +10,11 @@ const ACHIEVEMENTS = [
     icon:        Trophy,
     title:       "Blue Tech Challenge",
     subtitle:    "2ème place",
-    description: "Récompense décernée pour les projets innovants à fort impact social et technologique.",
+    description: (
+      <>
+        Récompense décernée pour le projet <strong className="text-brand font-bold text-base">MendoCoti</strong> à fort impact social et technologique.
+      </>
+    ),
     color:       "#F59E0B",
   },
   {

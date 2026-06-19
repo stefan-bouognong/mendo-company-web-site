@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Globe, Send, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Globe, Send, CheckCircle2, Phone } from "lucide-react";
 import SectionTitle from "@/components/layout/SectionTitle";
 
 export default function Contact() {
@@ -39,6 +39,8 @@ export default function Contact() {
     { icon: MapPin, label: "Adresse",  value: "Yaoundé – Cameroun",         href: undefined },
     { icon: Mail,   label: "Email",    value: "contact@mendocompany.com",    href: "mailto:contact@mendocompany.com" },
     { icon: Globe,  label: "Site Web", value: "www.mendocompany.com",        href: "https://www.mendocompany.com" },
+    { icon: Phone,  label: "Telephone", value: "+237 691 53 50 42",        href: "tel:+237691535042" },
+
   ];
 
   return (
@@ -91,7 +93,7 @@ export default function Contact() {
             {/* Encart réponse rapide */}
             <div className="bg-brand/10 border border-brand/20 rounded-xl p-6 mt-2">
               <p className="text-brand text-sm font-heading font-semibold mb-2">
-                ⚡ Réponse rapide
+              Réponse rapide
               </p>
               <p className="text-muted text-xs leading-relaxed">
                 Notre équipe répond dans les 48h ouvrées à toute demande
